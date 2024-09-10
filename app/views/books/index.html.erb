@@ -2,7 +2,7 @@
 
 <h1>Books</h1>
 
-<% @books.each do |book| %>
+
 
 <table>
 
@@ -19,7 +19,9 @@
  </tr>
 
  </thead>
- 
+
+    <% @books.each do |book| %>
+
  <tbody>
 
   <tr>
@@ -37,20 +39,35 @@
  </tr>
 
  </tbody>
+　<% end %>
 
 </table>
-<% end %>
+
 <h2>New Book</h2>
+
 <%= form_with model: @book, url: '/books', method: :post do |f| %>
 
- <p>Title</p>
+<div class="field">
+
+  <div class="label-title">Title</div>
 
  <%= f.text_field :title %>
 
- <p>Body</p>
+</div>
+
+<div class="field">
+
+ <div class="label-body">Body</div>
 
  <%= f.text_area :body %>
 
+</div>
+
+
+ <div class="field">
+
  <%= f.submit "Create Book"%>
+
+ </div>
 
  <% end %>

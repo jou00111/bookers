@@ -49,16 +49,30 @@ p, ol, ul, td{
 }
 
 a{
-
   color: #000;
+}
+
+th{
+
+  padding-bottom: 7px;
 
 }
 
-a:visited{
+td{
 
-  color: #666;
+  padding-bottom: 7px;
+
+  padding-left: 5px;
+
+  padding-right: 5px;
 
 }
 
-table {
+.field{
+
+  margin-bottom: 10px;
+}
+
+.visited{
+  color:  #666;
 }
