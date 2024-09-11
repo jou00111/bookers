@@ -3,24 +3,48 @@
 
 <%= form_with model: @book do |f|%>
 
-<div class="field">
 
-  <div class="label-title">Title</div>
+ <% if @book.errors.any? %>
+  <div id="error_explanation">
 
-  <%= f.text_field :title %>
+
+   <h2>
+   <%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:
+
+  </h2>
+
+   <ul>
+
+   <% @book.errors.full_messages.each do |message| %>
+
+     <li><%= message %></li>
+
+  <% end %>
+
+  </ul>
+
+  <% end %>
 
 </div>
 
 <div class="field">
 
-  <div class="label-body">Body</div>
+  <%= f.label :title %>
+
+  <%= f.text_field :title %>
+
+</div>
+
+<div class="field <%= 'has-error' if @book.errors.include?(:body) %>">
+
+  <%= f.label :body %>
 
   <%= f.text_area :body %>
 
 </div>
 
 <div class="field">
-  <%= f.submit 'update book' %>
+  <%= f.submit 'Update Book' %>
 
   <% end %>
 
